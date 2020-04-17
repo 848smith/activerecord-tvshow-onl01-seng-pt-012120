@@ -4,6 +4,22 @@ class Show < ActiveRecord::Base
   end
   
   def most_popular_show
-    
+    Show.find(highest_rating)
+  end
+  
+  def lowest_rating
+    Show.minumum("rating")
+  end
+  
+  def least_popular_show
+    Show.find(lowest_rating)
+  end
+  
+  def ratings_sum
+    Show.sum("ratings")
+  end
+  
+  def popular_shows
+    Show.where("rating ")
   end
 end
